@@ -13,7 +13,7 @@ public abstract class Bank {
         return balance;
     }
 
-    public BankType getType() {
-        return type;
+    public void addBalance(double balance){
+        this.balance+=balance;
     }
 }
