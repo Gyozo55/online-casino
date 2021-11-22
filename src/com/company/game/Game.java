@@ -31,4 +31,12 @@ public abstract class Game {
     public double getTotalCost() {
         return totalCost;
     }
+
+    public void addBankBalance(double balance){
+        ownBank.addBalance(balance);
+    }
+
+    public double getBankBalance(){
+        return ownBank.getBalance();
+    }
 }

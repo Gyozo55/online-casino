@@ -9,25 +9,25 @@ import java.util.List;
 
 public class Casino {
     CasinoBank casinoBank = new CasinoBank(10000.000, BankType.CASINOBANK);
-    private List<Game> gameTalbes = new ArrayList<>();
+    private final List<Game> gameTables = new ArrayList<>();
 
     public void addGame(Game game){
-        gameTalbes.add(game);
+        gameTables.add(game);
     }
 
     public double calculateProfit(){
         double dailyProfit = 0;
-        for(Game game: gameTalbes){
-            game.getOwnBank().addBalance(game.getDailyInCome() - game.getTotalCost());
-            dailyProfit += game.getOwnBank().getBalance();
+        for(Game game: gameTables){
+            game.addBankBalance(game.getDailyInCome() - game.getTotalCost());
+            dailyProfit += game.getBankBalance();
         }
         return dailyProfit;
     }
 
     public double calculateTotalBalance(){
         double totalBalance;
-        for(Game game: gameTalbes){
-            casinoBank.addBalance(game.getOwnBank().getBalance());
+        for(Game game: gameTables){
+            casinoBank.addBalance(game.getBankBalance());
         }
         totalBalance = casinoBank.getBalance();
         return totalBalance;
